@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pws
+  labels:
+    app: pws
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pws
+  template:
+    metadata:
+      labels:
+        app: pws
+    spec:
+      containers:
+        - name: pws
+          image: 462613583642.dkr.ecr.us-east-2.amazonaws.com/pws:1.1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
